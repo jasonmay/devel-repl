@@ -16,8 +16,8 @@ has complete_session => (
     isa       => 'Str',
     lazy      => 1,
     default   => '',
-    provides  => {
-        append => 'add_to_session',
+    handles   => {
+        add_to_session => 'append',
     },
 );
 
