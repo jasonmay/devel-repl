@@ -64,6 +64,7 @@ unless ($@) {
 
 # use_ok('Devel::REPL::Plugin::Interrupt') unless $^O eq 'MSWin32';
 use_ok('Devel::REPL::Plugin::LexEnv');
+use_ok('Devel::REPL::Plugin::LoadClass');
 
 eval 'use PPI';
 unless ($@) {
