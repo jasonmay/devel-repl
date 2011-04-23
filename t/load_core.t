@@ -91,5 +91,6 @@ unless ($@) {
 }
 
 use_ok('Devel::REPL::Plugin::ShowClass');
+use_ok('Devel::REPL::Plugin::Time');
 use_ok('Devel::REPL::Plugin::Timing');
 use_ok('Devel::REPL::Plugin::Turtles');
