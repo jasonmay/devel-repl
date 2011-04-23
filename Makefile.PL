@@ -71,6 +71,11 @@ feature 'Refresh plugin - automatically reload libraries with Module::Refresh',
     -default => 0,
     'Module::Refresh' => 0;
 
+feature 'Editor plugin - edit code in your editor, and have it executed',
+    -default => 0,
+    'autodie' => 0,
+    'Proc::InvokeEditor' => 1.06;
+
 test_requires 'Test::More';
 
 auto_install;

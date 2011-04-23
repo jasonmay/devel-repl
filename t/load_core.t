@@ -47,6 +47,12 @@ unless ($@) {
 }
 
 use_ok('Devel::REPL::Plugin::DumpHistory');
+
+eval 'use autodie; use Proc::InvokeEditor';
+unless ($@) {
+   use_ok('Devel::REPL::Plugin::Editor');
+}
+
 use_ok('Devel::REPL::Plugin::FancyPrompt');
 use_ok('Devel::REPL::Plugin::FindVariable');
 use_ok('Devel::REPL::Plugin::History');
