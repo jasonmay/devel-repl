@@ -63,6 +63,10 @@ feature 'PPI plugin - PPI dumping of Perl code',
     -default => 1,
     'PPI' => 0;
 
+feature 'Refresh plugin - automatically reload classes with Class::Refresh',
+    -default => 0,
+    'Class::Refresh' => 0,
+
 feature 'Refresh plugin - automatically reload libraries with Module::Refresh',
     -default => 0,
     'Module::Refresh' => 0;

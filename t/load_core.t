@@ -4,6 +4,12 @@ use Test::More 'no_plan';
 
 use_ok('Devel::REPL');
 use_ok('Devel::REPL::Script');
+
+eval 'use Class::Refresh';
+unless ($@) {
+   use_ok('Devel::REPL::Plugin::ClassRefresh');
+}
+
 use_ok('Devel::REPL::Plugin::Colors');
 use_ok('Devel::REPL::Plugin::Commands');
 
