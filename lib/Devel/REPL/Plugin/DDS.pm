@@ -6,6 +6,9 @@ use Data::Dump::Streamer ();
 around 'format_result' => sub {
    my $orig = shift;
    my $self = shift;
+
+   return $self->$orig(@_) if @_ == 0;
+
    my @to_dump = @_;
    my $out;
    if (@to_dump != 1 || ref $to_dump[0]) {
