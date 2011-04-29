@@ -23,6 +23,8 @@ requires 'B::Concise';
 requires 'Term::ANSIColor';
 requires 'Devel::Peek';
 
+requires 'Try::Tiny';
+
 feature 'Completion plugin - extensible tab completion',
     -default => 1,
     'PPI' => 0;

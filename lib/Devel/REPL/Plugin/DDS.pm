@@ -3,6 +3,8 @@ package Devel::REPL::Plugin::DDS;
 use Devel::REPL::Plugin;
 use Data::Dump::Streamer ();
 
+use Try::Tiny;
+
 around 'format_result' => sub {
    my $orig = shift;
    my $self = shift;
@@ -15,10 +17,12 @@ around 'format_result' => sub {
       if (@to_dump == 1 && overload::Method($to_dump[0], '""')) {
          $out = "@to_dump";
       } else {
-         my $dds = Data::Dump::Streamer->new;
-         $dds->Freezer(sub { "$_[0]"; });
-         $dds->Data(@to_dump);
-         $out = $dds->Out;
+         $out = try {
+            my $dds = Data::Dump::Streamer->new;
+            $dds->Freezer(sub { "$_[0]"; });
+            $dds->Data(@to_dump);
+            $dds->Out;
+        } || $_[0];
       }
    } else {
       $out = $to_dump[0];
